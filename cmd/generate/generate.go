@@ -17,8 +17,8 @@ func Generate() {
 	args := flag.Args()
 	if len(args) < 1 {
 		fmt.Println("Error: Migration name is required")
-		fmt.Println("Usage: go run generate.go <migration_name>")
-		fmt.Println("Example: go run generate.go create_users_table")
+		fmt.Println("Usage: go run main.go generate <migration_name>")
+		fmt.Println("Example: go run main.go generate create_users_table")
 		os.Exit(1)
 	}
 
@@ -86,7 +86,6 @@ COMMIT;
 func createMigrationFile(filePath, template, migrationName string) error {
 	file, err := os.Create(filePath)
 	if err != nil {
-		fmt.Println("ERRORNYA DISINI")
 		return err
 	}
 
